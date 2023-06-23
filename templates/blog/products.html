@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+        <div class="head-bread">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">PRODUCTS</li>
+                </ol>
+            </div>
+        </div>
+        <div class="products-gallery">
+           <div class="container">
+               <div class="col-md-9 grid-gallery">
+                {% for i in  prg %}
+                    <div class="col-md-4 grid-stn simpleCart_shelfItem">
+                         <!-- normal -->
+                            <div class="ih-item square effect3 bottom_to_top">
+                                <div class="bottom-2-top">
+                        <div class="img"><img src="{{i.image.url}}" alt="/" class="img-responsive gri-wid"></div>
+                                <div class="info">
+                                    <div class="pull-left styl-hdn">
+                                        <h3>{{i.name}}</h3>
+                                    </div>
+                                    <div class="pull-right styl-price">
+                                        <p><a  href="#" class="item_add"><span class="glyphicon glyphicon-shopping-cart grid-cart" aria-hidden="true"></span> <span class=" item_price">{{i.price}} {{i.price_type}}</span></a></p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div></div>
+                            </div>
+                        <!-- end normal -->
+                        <div class="quick-view">
+                            <a href="{% url 'single' pk=i.id %}">Quick view</a>
+                        </div>
+                    </div>
+                    
+                {% endfor %}
+                    <div class="col-md-4 grid-stn simpleCart_shelfItem">
+                        <!-- normal -->
+                            
+               <div class="col-md-3 grid-details">
+                    <div class="grid-addon">
+            <div class="clearfix"></div>
+            </div>
+        </div>
+    </body>
+    {% endblock content %}
+   
