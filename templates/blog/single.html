@@ -1,4 +1,7 @@
-
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
         <div class="head-bread">
             <div class="container">
                 <ol class="breadcrumb">
@@ -14,7 +17,7 @@
                     <div class="flexslider">
                           <ul class="slides">
                             <li data-thumb="images/show.jpg">
-                                <div class="thumb-image"> <img src="{{product_pk.image.url}}" data-imagezoom="true" class="img-responsive"> </div>
+                                <div class="thumb-image"> <img src="{{products_pk.image.url}}" data-imagezoom="true" class="img-responsive"> </div>
                             </li>
                            
                         <div class="clearfix"></div>
@@ -23,10 +26,10 @@
                 <div class="col-md-4 showcase">
                     <div class="showcase-rt-top">
                         <div class="pull-left shoe-name">
-                            <h3>{{ product_pk.name}}</h3>
-                            <p>{{product_pk.type.name}}</p>
-                            <p>{{product_pk.character}}</p>
-                            <h4>{{product_pk.price}}{{product_pk.price_type}}</h4>
+                            <h3>{{ products_pk.name}}</h3>
+                            <p>{{products_pk.type.name}}</p>
+                            <p>{{products_pk.character}}</p>
+                            <h4>{{products_pk.price}}{{products_pk.price_type}}</h4>
                             <h4>&#36;190</h4>
                         </div>
                         <div class="pull-left rating-stars">
@@ -293,5 +296,6 @@
                 <div class="clearfix"></div>
             </div>
         </div>
-        
+    </body>
+    {% endblock content %}
       

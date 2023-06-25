@@ -25,11 +25,13 @@ def products(requests,slug = None):
         'ctg' : ctg,
         'ctg2' : ctg2,
         'prg': prg,
+    
     }
     return render(requests, 'blog/products.html', tex)
 
 
 def single(requests, pk = None):
+     products_pka = Bay.objects.all()
      ctg = Category.objects.all()
      products_pk = Product.objects.get(pk = pk)
      form = ChoiceForm()
@@ -41,14 +43,31 @@ def single(requests, pk = None):
              root = Bay.objects.get(pk=root.id)
              root.product = products_pk
              root.save()
-             return redirect('home')
+             return redirect('korzinka')
          else:
              print(forms.errors)
      tex = {
         'ctg': ctg,
         'products_pk':products_pk,
         'form':form,
+       
     }
      return render(requests,'blog/single.html',tex)
              
-             
+def Korzinka(requests, ):
+   
+    products_pk = Bay.objects.all()
+    
+    tex = {
+        
+        'products_pk':products_pk,
+        
+    }
+   
+    return render(requests, 'blog/korzinka.html',tex) 
+
+def Korzinka_dalet(requests, ):
+    
+    products_pk = Bay.objects.all() 
+    products_pk.delete()
+    return redirect('korzinka')                      

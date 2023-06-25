@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+  <!-- Start Cart  -->
+  <div class="cart-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-main table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                {% for i in products_pk %}
+                                
+                               
+                                <td class="thumbnail-img">
+                                    <a href="#">
+                                        <a href="#">
+                                            {{i.name}}
+                                            </a>
+                            </a>
+                                </td>
+                                <td class="name-pr">
+                                    <a href="#">
+                            {{i.product}}
+                            </a>
+                                </td>
+                                <td class="price-pr">
+                                    <p>{{i.product.price}}</p>
+                                </td>
+                                <td class="price-pr">
+                                    <p>{{i.how}}</p>
+                                </td>
+                                <td class="total-pr">
+                                    <p>{{i.how}}</p>
+                                </td>
+                                <td class="remove-pr">
+                                    <a href="{% url 'korzinka_dalet' %}">dalet</a>
+                                   
+                                <i class="fas fa-times"></i>
+                            </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        
+            <div class="col-lg-6 col-sm-6">
+                <div class="update-box">
+                    <input value="Update Cart" type="submit">
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-5">
+            <div class="col-lg-8 col-sm-12"></div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="order-box">
+                  
+                    
+     
+    </div>
+</div>
+<!-- End Cart -->
+   
+</body>
+
+{% endblock content %}

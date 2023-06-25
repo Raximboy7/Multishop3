@@ -12,6 +12,9 @@ class Category(models.Model):
             self.slug = slugify(self.name)
         super(Category, self).save(*args, **kwargs)
         
+    def __str__(self) -> str:
+        return self.name
+        
         
 class Product(models.Model):
     name = models.CharField(max_length=222)
@@ -31,7 +34,8 @@ class Product(models.Model):
     image = models.ImageField()
     
     
-    
+    def __str__(self) -> str:
+        return self.name
     
     
 class Bay(models.Model):
@@ -61,3 +65,12 @@ class Bay(models.Model):
     how = models.CharField(max_length=100,choices=ALL_VALUES)
     map = models.TextField()
     email = models.EmailField(blank=True)
+    
+    
+    def __str__(self) -> str:
+        return self.name
+    
+    
+    
+    def get_size(self):
+        return self.price * self.ALL_SIZES
