@@ -31,7 +31,7 @@ def products(requests,slug = None):
 
 
 def single(requests, pk = None):
-     products_pka = Bay.objects.all()
+     products_pk = Bay.objects.all()
      ctg = Category.objects.all()
      products_pk = Product.objects.get(pk = pk)
      form = ChoiceForm()
@@ -54,7 +54,7 @@ def single(requests, pk = None):
     }
      return render(requests,'blog/single.html',tex)
              
-def Korzinka(requests, ):
+def Korzinka(requests ):
    
     products_pk = Bay.objects.all()
     
